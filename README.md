@@ -1,10 +1,8 @@
 # Deep-Dive
 
-It will mostly contain the internal implementations and findings of various libraries and components that
-i come across. I write the posts in the Wikis section of this repository.
+I write about the findings and internal implementation of various components. I have taken most of the things from Developer documentation and various blog posts and articles. These are just the things that i explain it to myself that help me understand the components better.
 
-N.B- Most of the implementations details and the code is derived from the developer site of Android or from  
-the various blog posts and articles that i come across.
+So there is a high chance that you have read the description or code somewhere else also. Its not about research or 100% originality here. They are just my understandings taken out after reading from various sources.
 
 ###For now you can write any comments in the issues section.
 

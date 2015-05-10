@@ -23,9 +23,30 @@ public class ThreadImpl {
                 flag=false;
 
             }
+			
+			
 
            // flag=false;
 
         }
     }
+	
+	// 1.The Android implementation is also almost same. Apart from that, it also handles concurrency conditions. But what if a processor
+	 // takes less than 1 nanoseconds to reach from startTime to endTime. In that case, it will fail.
+	 
+	 //2. And also when the parameter (millis) that we pass has the maximum value for a long, then also multiplying it with 10^6 will overflow.
+	 
+	 
+	 // Nannos is for extra nanosecond precesion
+	 public static void javaImpl(long mills,int nanos){
+		 
+		 long start = System.nanoTime();
+         long duration = (millis * NANOS_PER_MILLI) + nanos;
+		 
+		 
+		 
+	 }
+	 
+	 
+	
 }

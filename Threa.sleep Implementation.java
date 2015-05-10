@@ -40,8 +40,29 @@ public class ThreadImpl {
 	 // Nannos is for extra nanosecond precesion
 	 public static void javaImpl(long mills,int nanos){
 		 
-		 long start = System.nanoTime();
-         long duration = (millis * NANOS_PER_MILLI) + nanos;
+		long start = System.nanoTime();
+        long duration = (millis * NANOS_PER_MILLI) + nanos;
+
+        Object lock = currentThread().lock;
+
+        // Wait may return early, so loop until sleep duration passes.
+        synchronized (lock) {
+            while (true) {
+                sleep(lock, millis, nanos);
+
+                long now = System.nanoTime();
+                long elapsed = now - start;
+
+                if (elapsed >= duration) {
+                    break;
+                }
+
+                duration -= elapsed;
+                start = now;
+                millis = duration / NANOS_PER_MILLI;
+                nanos = (int) (duration % NANOS_PER_MILLI);
+            }
+        }
 		 
 		 
 		 
